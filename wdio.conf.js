@@ -14,7 +14,7 @@ exports.config = {
         browserName: 'chrome',
         acceptInsecureCerts: true,
         'goog:chromeOptions': {
-            args: ['headless', 'disable-gpu']
+            args: ['--headless', 'disable-gpu']
         }
     },
     {
@@ -28,14 +28,14 @@ exports.config = {
 ],
     logLevel: 'error',
     bail: 0,
-    baseUrl: 'https://e629ed6b-4969-442b-987e-087e81eb10ca.serverhub.practicum-services.com',
-    waitforTimeout: 10000,
+    baseUrl: 'https://cnt-685f7133-43d4-409e-aed7-58d75ba88fd7.containerhub.tripleten-services.com',
+    waitforTimeout: 30000,
     connectionRetryTimeout: 120000,
     connectionRetryCount: 3,
     services: [
         'chromedriver', 
         'geckodriver', 
-        'intercept', 
+        'intercept' 
     ],
     framework: 'mocha',
     reporters: ['spec'],
@@ -43,4 +43,11 @@ exports.config = {
         ui: 'bdd',
         timeout: 60000
     },
-}
+
+    before: function (capabilities, specs) {
+        // This runs before each test
+        // Initialize or navigate to the base URL
+        browser.url(this.baseUrl);
+        
+    }
+};
