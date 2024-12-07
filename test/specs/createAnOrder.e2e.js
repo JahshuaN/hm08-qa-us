@@ -1,6 +1,8 @@
 const page = require('../../page');
 const helper = require('../../helper')
 
+//it launced just fine for me.
+
 describe('Create an order', () => {
     it("should open phone number modal", async () => {
         await browser.url("/");
@@ -16,6 +18,7 @@ describe('Create an order', () => {
     it('should save the address', async () => {
         await browser.url(`/`)
         await page.fillAddresses('East 2nd Street, 601', '1300 1st St');
+        await expect(fillAddresses).toBeDisplayed();
     })
 
     //Task 2
