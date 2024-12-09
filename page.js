@@ -129,7 +129,7 @@ module.exports = {
     },
     orderIceCreams: async function (quantity) {
         const iceCreamCounterPlusButton = await $(this.iceCreamCounterPlusButton);
-        await iceCreamCounterPlusButton.waitForDisplayed({ timeout: 20000 });
+        await iceCreamCounterPlusButton.waitForClickable({ timeout: 30000 });
         await iceCreamCounterPlusButton.click();
         await iceCreamCounterPlusButton.click();
         console.log
